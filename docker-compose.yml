@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+  app:
+    container_name: pipdrive_server_app
+    restart: always
+    build: .
+    ports:
+      - '3005:3005'
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
